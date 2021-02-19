@@ -14,8 +14,11 @@ Sample code is shown in the samples directory.
 Define a marker like this and loop to the marker
 
 ;Comment
+
 foo:
+
 lda #$00
+
 jmp foo
 
 Comments begin in a ";".
