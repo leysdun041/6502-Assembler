@@ -31,21 +31,16 @@ def createbuild(classList):
     build.initmemory()
     currentAdress=0
     for line in classList:
-        print("NEWLINE")
-        print(line.text)
 
         if line.type=="DIR" and line.dir=="ORG":
             currentAdress=line.dirarg
         if line.type=="TOKEN":
-            print(line.token)
             build.resolvetoken(line.token, currentAdress)
         if line.type=="CODE":
-            print(line.instruction)
             a=line.decodeinstruction()
             for i in range(len(a)):
                 if type(a[i]) is int:
                     a[i]=hex(a[i])
-            print(a)
             instr=line.decodeinstruction()
             build.addmemory(currentAdress, instr[0])
             currentAdress+=1
